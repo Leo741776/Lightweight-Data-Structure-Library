@@ -21,7 +21,6 @@ Queue *q_create() {
     Queue *q = malloc(sizeof(Queue));
 
     if (!q) {
-        printf("Error: Queue allocation failed.\n");
         return NULL;
     }
 
@@ -29,7 +28,6 @@ Queue *q_create() {
 
     if (!q->data) {
         free(q); // Clean up the struct if the data array fails
-        printf("Error: Data allocation failed.\n");
         return NULL;
     }
 
@@ -47,7 +45,6 @@ Queue *q_create() {
  */
 int q_free(Queue *q) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return -1;
     }
 
@@ -67,7 +64,6 @@ int q_free(Queue *q) {
  */
 int q_resize(Queue *q) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return -1;
     }
 
@@ -77,7 +73,6 @@ int q_resize(Queue *q) {
     double *buffer = malloc(new_capacity * sizeof(double));
 
     if (!buffer) {
-        printf("Error: Buffer allocation failed.\n");
         return -1;
     }
 
@@ -101,14 +96,12 @@ int q_resize(Queue *q) {
  */
 int q_enqueue(Queue *q, double value) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return -1;
     }
 
     // Check if resize is needed
     if (q->size == q->capacity) {
         if (q_resize(q) != 0) {
-            printf("Error: Queue resize failed.\n");
             return -1;
         }
     }
@@ -127,12 +120,10 @@ int q_enqueue(Queue *q, double value) {
  */
 double q_dequeue(Queue *q) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return NAN;
     }
 
     if (q->size == 0) {
-        printf("Error: Queue is empty.\n");
         return NAN;
     }
 
@@ -150,12 +141,10 @@ double q_dequeue(Queue *q) {
  */
 double q_peek(Queue *q) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return NAN;
     }
 
     if (q->size == 0) {
-        printf("Error: Queue is already empty.\n");
         return NAN;
     }
 
@@ -167,7 +156,6 @@ double q_peek(Queue *q) {
  */
 int q_print(Queue *q) {
     if (!q) {
-        printf("Error: Queue is NULL.\n");
         return -1;
     }
 
