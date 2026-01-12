@@ -1,4 +1,4 @@
-# Data Structure Library
+# Lightweight Data Structure Library
 This is a lightweight data structure library which includes a collection of dynamic data structures (stack, queue, linked list, hash table, max-heap) for general-purpose use, written in C.
 ## Operations included for each data structure
 These structures handle their own memory, but make sure to call the _free() function included for each struct to prevent memory leaks.
