@@ -27,7 +27,6 @@ HashTable *ht_create() {
     HashTable *ht = malloc(sizeof(HashTable));
 
     if (!ht) {
-        printf("Error: Hash table allocation failed.\n");
         return NULL;
     }
 
@@ -50,7 +49,6 @@ HashTable *ht_create() {
  */
 int ht_free(HashTable *ht) {
     if (!ht) {
-        printf("Error: Hash table is NULL.\n");
         return -1;
     }
 
@@ -81,7 +79,6 @@ int ht_free(HashTable *ht) {
  */
 unsigned int ht_hash(char *key) {
     if (!key) {
-        printf("Error: Key is NULL.\n");
         return -1;
     }
 
@@ -142,7 +139,6 @@ int ht_rehash(HashTable *ht) {
  */
 void ht_insert(HashTable *ht, char *key, double value) {
     if (!ht || !key) {
-        printf("Error: Hash table is NULL.\n");
         return;
     }
 
@@ -171,7 +167,6 @@ void ht_insert(HashTable *ht, char *key, double value) {
     new_entry->key = strdup(key);   // Duplicate the string to manage its own memory
     if (!new_entry->key) {
         free(new_entry);
-        printf("Error: Key allocation failed.\n");
         return;
     }
 
@@ -187,7 +182,6 @@ void ht_insert(HashTable *ht, char *key, double value) {
  */
 int ht_delete(HashTable *ht, char *key) {
     if (!ht || !key) {
-        printf("Error: Hash table and/or key is NULL.\n");
         return -1;
     }
 
@@ -224,7 +218,6 @@ int ht_delete(HashTable *ht, char *key) {
  */
 double ht_search(HashTable *ht, char *key) {
     if (!ht || !key) {
-        printf("Error: Hash table and/or key is NULL.\n");
         return NAN;
     }
 
