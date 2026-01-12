@@ -18,7 +18,6 @@ Heap *h_create() {
     Heap *h = malloc(sizeof(Heap));
 
     if (!h) {
-        printf("Error: Heap allocation failed.\n");
         return NULL;
     }
 
@@ -34,7 +33,6 @@ Heap *h_create() {
  */
 int h_free(Heap *h) {
     if (!h) {
-        printf("Error: Heap allocation failed.\n");
         return -1;
     }
 
@@ -48,7 +46,6 @@ int h_free(Heap *h) {
  */
 int h_resize(Heap *h) {
     if (!h) {
-        printf("Error: Heap is NULL.\n");
         return -1;
     }
 
@@ -57,7 +54,6 @@ int h_resize(Heap *h) {
     double *buffer = realloc(h->data, new_capacity * sizeof(double));
 
     if (!buffer) {
-        printf("Error: Buffer allocation failed.\n");
         return -1;
     }
 
@@ -73,7 +69,6 @@ int h_resize(Heap *h) {
  */
 void h_max_heapify(Heap *h, size_t i) {
     if (!h || h->size == 0) {
-        printf("Error: Heap is NULL.\n");
         return;
     }
 
@@ -108,13 +103,11 @@ void h_max_heapify(Heap *h, size_t i) {
  */
 void h_insert(Heap *h, double value) {
     if (!h) {
-        printf("Error: Heap is NULL.\n");
         return;
     }
 
     if (h->size >= h->capacity) {
         if (h_resize(h) != 0) {
-            printf("Error: Could not resize heap.\n");
             return;
         }
     }
@@ -152,7 +145,6 @@ double h_peek(Heap *h) {
  */
 double h_pop_max(Heap *h) {
     if (!h || h->size == 0) {
-        printf("Error: Heap is NULL.\n");
         return NAN;
     }
 
